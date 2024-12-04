@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradise</title>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #333;
+            --background-color: #f9f9f9;
+            --text-color: #555;
+            --font-family: 'Arial', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow: hidden; /* Para evitar barras de rolagem com as bolhas animadas */
+        }
+
+        header {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 300px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card img {
+            width: 80%;
+            height: auto;
+            transition: transform 0.2s ease;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+
+        .card-body h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .card-body p {
+            margin-top: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .paypal-button {
+            display: block;
+            margin: 1rem auto;
+            width: 250px; /* Ajustando para 250px de largura */
+            height: auto; /* Garantindo que a altura seja proporcional */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .paypal-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Efeito de bolhas animadas */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            width: 40px;
+            height: 40px;
+            background: rgba(76, 175, 80, 0.2);
+            border-radius: 50%;
+            animation: float 6s infinite;
+        }
+
+        .bubble:nth-child(2) {
+            left: 20%;
+            width: 60px;
+            height: 60px;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(3) {
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            animation-duration: 7s;
+        }
+
+        .bubble:nth-child(4) {
+            left: 70%;
+            width: 50px;
+            height: 50px;
+            animation-duration: 5s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-800px);
+                opacity: 0;
+            }
+        }
+
+        /* Estilo para as imagens simulando vídeos */
+        .videos {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .video {
+            width: 25%; /* Ajustando para ocupar menos espaço */
+            position: relative;
+            background-color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .video img {
+            width: 100%;
+            height: auto;
+            filter: blur(10px);
+            transition: filter 0.3s ease;
+        }
+
+        .video:hover img {
+            filter: blur(0);
+        }
+
+        .video .content-blocked {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    <header>
+        <h1>Paradise</h1>
+    </header>
+   
+    <div class="container">
+        <section class="cards">
+            <div class="card">
+                <img src="https://i.ibb.co/Stt2KZq/5.jpg" alt="Imagem 1">
+                <div class="card-body">
+                    <h3>Pollo</h3>
+                    <p>Quality content.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick" />
+                        <input type="hidden" name="hosted_button_id" value="JV2B8T587EMMU" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input class="paypal-button" type="image" src="https://lavendercottagecattery.co.uk/wp-content/uploads/2022/10/CITYPNG.COMDownload-PayPal-Yellow-Payment-Button-PNG-2100x770-2.png" border="0" name="submit" alt="Comprar agora" />
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Adicionando a seção de imagens simulando vídeos -->
+        <section class="videos">
+            <div class="video">
+                <img src="https://via.placeholder.com/600x400.png?text=Video+1" alt="Vídeo 1">
+                <div class="content-blocked">Conteúdo Bloqueado</div>
+            </div>
+            <div class="video">
+                <img src="https://via.placeholder.com/600x400.png?text=Video+2" alt="Vídeo 2">
+                <div class="content-blocked">Conteúdo Bloqueado</div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 My Site; All rights reserved.</p>
+    </footer>
+</body>
+</html>
