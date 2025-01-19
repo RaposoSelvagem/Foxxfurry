@@ -6,12 +6,13 @@
     <title>Paradise</title>
     <style>
         :root {
-            --primary-color: #ff6f61; /* Novo esquema de cores */
-            --secondary-color: #444;
-            --background-color: #f4f4f9;
-            --text-color: #333;
-            --accent-color: #ff9f80;
-            --font-family: 'Georgia', serif;
+            --primary-color: #4a90e2; /* Azul moderno */
+            --secondary-color: #f8f9fa; /* Fundo claro */
+            --text-color: #333; /* Cor de texto */
+            --highlight-color: #ff7f50; /* Coral */
+            --button-bg: #4caf50; /* Verde para destaque */
+            --button-hover: #45a049; /* Hover do botão */
+            --font-family: 'Poppins', sans-serif;
         }
 
         * {
@@ -22,142 +23,115 @@
 
         body {
             font-family: var(--font-family);
+            background-color: var(--secondary-color);
             color: var(--text-color);
-            line-height: 1.8;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
         header {
             background: var(--primary-color);
-            color: #fff;
-            padding: 3rem 1rem;
+            padding: 1.5rem 0;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: white;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            font-size: 4rem;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px #333;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
         }
 
         .container {
-            max-width: 1300px;
-            margin: 3rem auto;
-            padding: 0 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
         }
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .card {
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .card-body {
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
         }
 
         .card-body .image-grid {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .card-body .image-grid img {
-            width: 200px;
-            height: 200px;
-            border-radius: 8px;
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
             object-fit: cover;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .card-body h3 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .card-body p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: var(--text-color);
             margin-bottom: 1.5rem;
         }
 
         .paypal-button {
-            display: block;
-            margin: 1rem auto;
-            width: 300px; /* Ajustando para 300px de largura */
-            height: auto; /* Garantindo que a altura seja proporcional */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .paypal-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: var(--button-hover);
+            transform: translateY(-2px);
         }
 
         footer {
-            background: var(--secondary-color);
-            color: #fff;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
+            padding: 2rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            margin-top: 2rem;
+            font-size: 0.9rem;
         }
-
-        footer p {
-            font-size: 1rem;
-        }
-
-        /* Efeito de gradiente de fundo */
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(45deg, #ff9f80, #ff6f61, #ffd700);
-            background-size: 300% 300%;
-            animation: gradientAnimation 10s ease infinite;
-        }
-
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
     </style>
 </head>
 <body>
-    <div class="background"></div>
     <header>
-        <h1>Paradise</h1>
+        <h1>Welcome to Paradise</h1>
     </header>
 
     <div class="container">
@@ -165,27 +139,26 @@
             <div class="card">
                 <div class="card-body">
                     <div class="image-grid">
-                        <img src="https://i.ibb.co/R9kkgTZ/oijhj.png" alt="Small Image 1">
-                        <img src="https://i.ibb.co/vj6SySF/khgb.png" alt="Small Image 2">
-                        <img src="https://i.ibb.co/TMK4GJk/bfsvx.png" alt="Small Image 3">
-                        <img src="https://i.ibb.co/WzCvq96/vbv.png" alt="Small Image 4">
+                        <img src="https://i.ibb.co/SPBXMbm/download-2.png" alt="Small Image 1">
+                        <img src="https://i.ibb.co/7SMNqyy/download-1.png" alt="Small Image 2">
+                        <img src="https://i.ibb.co/sJqC3px/download.png" alt="Small Image 3">
+                        <img src="https://i.ibb.co/3ytwGc4/download-3.png" alt="Small Image 4">
                     </div>
-                    <h3>400GB of photos and videos</h3>
-                    <p>Quality content.</p>
-                   <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-  <input type="hidden" name="cmd" value="_s-xclick" />
-  <input type="hidden" name="hosted_button_id" value="V4QGSHZ724ZEC" />
-  <input type="hidden" name="currency_code" value="USD" />
-  <input type="image" src="https://i.ibb.co/0F4pHvN/output-onlinepngtools-2.png" border="0" name="submit" title="O PayPal é a forma fácil e segura de pagar suas compras on-line." alt="Comprar agora" />
-</form>
-
+                    <h3>400GB of Premium Content</h3>
+                    <p>Enjoy exclusive photos and videos.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="V4QGSHZ724ZEC">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="paypal-button">Access Now</button>
+                    </form>
                 </div>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2024 Paradise. All rights reserved.</p>
+        <p>&copy; 2025 Paradise. All rights reserved.</p>
     </footer>
 </body>
 </html>
